@@ -1,0 +1,9 @@
+.NavigationItems {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &:last-child {
+        padding-right: 100px;
+    }
+}
