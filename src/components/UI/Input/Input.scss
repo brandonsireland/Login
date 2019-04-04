@@ -1,3 +1,21 @@
 .Input {
-    
+    display: inline-flex;
+    width: 100%;
+    padding: 4px 0;
+
+    &__icon {
+        padding: 10px;
+        background-color: #ededee;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+    }
+    input {
+        width: 100%;
+        font-size: 14px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        &:focus {
+            outline: none;
+        }
+    }
 }

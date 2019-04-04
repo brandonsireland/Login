@@ -1,0 +1,25 @@
+.ButtonOval {
+    width: 200px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 24px;
+    padding: 15px 20px;
+    background-color: #FE4C47;
+    border: none;
+    box-shadow: 0 12px 24px rgba(34,51,49,.13);
+    color: #fff;
+    transition:background-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        cursor: pointer;
+        color: #fff;
+        box-shadow: none;
+        background-color: rgba(#FE4C47, 0.9);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

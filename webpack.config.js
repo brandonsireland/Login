@@ -44,7 +44,8 @@ module.exports = {
               options: {
                 sourceMap: true,
                 includePaths: [
-                  bourbon, neat, normalize
+                  bourbon, neat, 
+                  normalize
                 ]
               }
             }
