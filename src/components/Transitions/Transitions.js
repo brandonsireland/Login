@@ -1,20 +1,20 @@
 import React from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { TransitionGroup, Transition } from "react-transition-group";
+import { play, exit } from '../../timelines';
 
-const childFactoryCreator = (props) => child => React.cloneElement(child, props);
-
-const transitions = ({ transition = '', duration = 0, pageKey, children }) => (
-    
-        <TransitionGroup
-            childFactory={childFactoryCreator({ classNames: transition, timeout: duration }) }>
-            <CSSTransition
-                key={ pageKey }
-                timeout={{ enter: 3000, exit: 300 }}
-                classNames='slide'
-                >
-                <div>{ children }</div>
-            </CSSTransition>
-        </TransitionGroup> 
-)
+const transitions = (props) => {
+    return (
+        <TransitionGroup component={null}>
+            <Transition
+                key={ props.pageKey }
+                appear={ true }
+                onEnter={(node, appears) => play(props.pathname, node, appears)}
+                onExit={(node, appears) => exit(node, appears)}
+                timeout={{enter: 750, exit: 150}}>
+                { props.children }
+            </Transition>
+        </TransitionGroup>
+    )
+};
 
 export default transitions;

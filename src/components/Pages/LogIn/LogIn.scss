@@ -8,16 +8,19 @@
     &__container {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        position: relative;
     }
 
     &__title {
         font-size: 46px;
         padding: 20px;
         font-weight: bold;
+        text-align: center;
     }
 
     &__half {
+        position: absolute;
+        left: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -25,6 +28,5 @@
         flex-direction: column;
         width: 70%;
         height: 100%;
-        // border: 1px solid black;
     }
 }

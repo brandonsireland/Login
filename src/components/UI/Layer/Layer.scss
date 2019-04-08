@@ -1,21 +1,28 @@
 .Layer {
+    position: absolute;
+    overflow: hidden;
     display: flex;
+    width: 30%;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    height: 100%;
-    // background-color: #FE4C47;
     background-image: linear-gradient(to left bottom, #fe4c47, #fe4451, #fd3d5c, #fa3766, #f73270);
+    z-index: 2;
     span {
         color: #fff;
+    }
+    &__block {
+        position: absolute;
+        display: block;
+        text-align: center;
     }
     &__title {
         font-size: 48px;
         margin-bottom: 32px;
         text-align: center;
     }
-    &__text {
+    &__subtext {
         font-size: 22px; 
         text-align: center;
         padding: 0 40px;

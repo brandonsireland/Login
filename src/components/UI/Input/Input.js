@@ -6,12 +6,7 @@ import Icon from '../Icon/Icon';
 const input = (props) => {
     let styles;
     
-    if(props.type === 'submit') {
-        styles = {
-
-        }
-    }
-    if(props.type === 'email' || props.type === 'text' ) {
+    if(props.elementType === 'email' || props.elementType === 'text' ) {
         styles = {
             backgroundColor : '#ededee',
             border: 'none',
@@ -26,11 +21,10 @@ const input = (props) => {
                 <Icon icon={ props.icon } color={ styles.color }/>
             </div>
             <input 
-            style={ styles } 
-            type={ props.type } 
-            name={ props.name } 
-            value={ props.value }
-            form={ props.form }
+                { ...props.elementConfig }
+                value={ props.value }
+                style={ styles } 
+                onChange={ props.changed }
             />
         </div>
     )

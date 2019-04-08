@@ -8,6 +8,7 @@
     &__container {
         width: 100%;
         display: flex;
+        position: relative;
     }
 
     &__title {
@@ -17,6 +18,8 @@
     }
 
     &__half {
+        position: absolute;
+        right: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,6 +27,5 @@
         flex-direction: column;
         width: 70%;
         height: 100%;
-        // border: 1px solid black;
     }
 }
