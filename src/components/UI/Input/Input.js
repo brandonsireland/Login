@@ -24,7 +24,7 @@ const input = (props) => {
                 { ...props.elementConfig }
                 value={ props.value }
                 style={ styles } 
-                onChange={ props.changed }
+                onChange={ props.changedValue }
             />
         </div>
     )

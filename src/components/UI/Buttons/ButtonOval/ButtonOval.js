@@ -14,6 +14,7 @@ const buttonOval = ({ history, to, ...props }) => {
         </Link>
     ) : (
         <button
+            onClick={ props.clicked }
             className={ classes.ButtonOval } 
             style={ props.style }>
             { props.children }</button> 

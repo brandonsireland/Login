@@ -13,4 +13,7 @@
         border: 1px solid #fff;
         transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     }
+    &:focus {
+        outline: none;
+    }
 }

@@ -14,11 +14,11 @@ import ButtonOval from '../Buttons/ButtonOval/ButtonOval';
 class Form extends Component {
 
     state = {
-        name : {
+        username : {
             elementType: 'text',
             elementConfig: {
-                type: 'name',
-                placeholder: 'Name'
+                type: 'username',
+                placeholder: 'Username'
             },
             value: '',
             icon: faUserAlt
@@ -43,12 +43,28 @@ class Form extends Component {
         }
     };
 
-    submitLogInHandler = () => {
-        // Axios.get()
+    submitLogInHandler = (event) => {
+        event.preventDefault();
+        const formData = {};
+        
+        for(let formElementIdentifier in this.state) {
+            formData[formElementIdentifier] = this.state[formElementIdentifier].value;
+        }
+        console.log(formData)
+        Axios.post('http://localhost:3000/login', formData)
+            .then(res => {
+                this.props.push('/')
+            })
     };
 
     submitSignUpHandler = () => {
-        // Axios.get()
+        event.preventDefault();
+        const formData = {};
+        
+        for(let formElementIdentifier in this.state) {
+            formData[formElementIdentifier] = this.state[formElementIdentifier].value;
+        }
+        // Axios.post('http://localhost:3000/signup', loginData)
     };
 
     inputChangedHandler = (event, inputIdentifier) => {
@@ -81,49 +97,49 @@ class Form extends Component {
         if(this.props.type == 'signin') {
             formDiv = (
                 <div className={ classes.Form } >
-            <span> or use your email account: </span>
-            <form onSubmit={ this.submitLogInHandler }>
-                { formElementsArray.map((formElement) => {
-                    if( formElement.id !== 'name') {
-                        return (
-                            <Input
-                                key={ formElement.id }
-                                elementType={ formElement.config.elementType } 
-                                elementConfig={ formElement.config.elementConfig } 
-                                value={ formElement.config.value }
-                                icon={ formElement.config.icon }
-                                changed={(event) => this.inputChangedHandler(event, formElement.id ) }
-                            />
-                        )
-                    }
-                })}
-            </form>
-            <Link to='/forgot'>
-                <span className={ classes.Form__forgot }>Forgot your password?</span>
-            </Link>
-            <ButtonOval>Sign In</ButtonOval>
-        </div>
+                    <span> or use your email account: </span>
+                    <form >
+                        { formElementsArray.map((formElement) => {
+                            if( formElement.id !== 'username') {
+                                return (
+                                    <Input
+                                        key={ formElement.id }
+                                        elementType={ formElement.config.elementType } 
+                                        elementConfig={ formElement.config.elementConfig } 
+                                        value={ formElement.config.value }
+                                        icon={ formElement.config.icon }
+                                        changedValue={(event) => this.inputChangedHandler(event, formElement.id ) }
+                                    />
+                                )
+                            }
+                        })}
+                    </form>
+                    <Link to='/forgot'>
+                        <span className={ classes.Form__forgot }>Forgot your password?</span>
+                    </Link>
+                    <ButtonOval clicked={ this.submitLogInHandler }>Sign In</ButtonOval>
+                </div>
         );
     };
     
     if(this.props.type == 'signup') {
         formDiv = (
             <div className={ classes.Form } >
-            <span> or use your email for registration: </span>
-            <form onSubmit={ this.submitSignUpHandler }>
-            { formElementsArray.map((formElement) => (
-                    <Input
-                        key={ formElement.id }
-                        elementType={ formElement.config.elementType } 
-                        elementConfig={ formElement.config.elementConfig } 
-                        value={ formElement.config.value }
-                        icon={ formElement.config.icon }
-                        changed={(event) => this.inputChangedHandler(event, formElement.id) }
-                    />
-                ))}
-            </form>
-            <ButtonOval>Sign Up</ButtonOval>
-        </div>
+                <span> or use your email for registration: </span>
+                <form onSubmit={ this.submitSignUpHandler }>
+                { formElementsArray.map((formElement) => (
+                        <Input
+                            key={ formElement.id }
+                            elementType={ formElement.config.elementType } 
+                            elementConfig={ formElement.config.elementConfig } 
+                            value={ formElement.config.value }
+                            icon={ formElement.config.icon }
+                            changedValue={(event) => this.inputChangedHandler(event, formElement.id) }
+                        />
+                    ))}
+                </form>
+                <ButtonOval clicked={ this.submitSignUpHandler }>Sign Up</ButtonOval>
+            </div>
         );
     }
     return (
