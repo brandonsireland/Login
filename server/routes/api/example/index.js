@@ -16,10 +16,7 @@ router.get('/:exampleId/update', exampleController.example_update_get);
 router.post('/:exampleId/update', exampleController.example_update_post);
 
 // Get Routes
-// api/example
 router.get('/', exampleController.get_all_examples);
-
-// api/example/:id
 router.get('/:exampleId', exampleController.get_example_id);
 
 module.exports = router;
