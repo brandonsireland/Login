@@ -4,6 +4,7 @@ import classes from './Input.scss';
 import Icon from '../Icon/Icon';
 
 const input = (props) => {
+    
     let styles;
     
     if(props.elementType === 'email' || props.elementType === 'text' ) {
@@ -12,6 +13,14 @@ const input = (props) => {
             border: 'none',
             padding: '10px 20px 10px 0',
             color: '#787D85',
+        }
+    }
+    if(props.elementType === 'error' ) {
+        styles = {
+            backgroundColor: 'red',
+            border: 'none',
+            padding: '10px 20px 10px 0',
+            color: 'red'
         }
     }
 

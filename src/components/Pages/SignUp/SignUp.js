@@ -10,7 +10,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import Layer from '../../../components/UI/Layer/Layer';
 import ButtonCircle from '../../../components/UI/Buttons/ButtonCircle/ButtonCircle';
 import Icon from '../../../components/UI/Icon/Icon';
-import Form from '../../../components/UI/Form/Form';
+import Form from '../../../containers/Form/Form';
 
 
 const signUp = (props) => {

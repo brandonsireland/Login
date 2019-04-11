@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import AxiosInstance from '../../../axios';
 
 import { faEnvelope } from '@fortawesome/pro-light-svg-icons';
 import { faLockAlt } from '@fortawesome/pro-light-svg-icons';
@@ -8,8 +8,8 @@ import { faUserAlt } from '@fortawesome/pro-light-svg-icons';
 
 import classes from './Form.scss';
 
-import Input from '../Input/Input';
-import ButtonOval from '../Buttons/ButtonOval/ButtonOval';
+import Input from '../../components/UI/Input/Input';
+import ButtonOval from '../../components/UI/Buttons/ButtonOval/ButtonOval';
 
 class Form extends Component {
 
@@ -21,7 +21,8 @@ class Form extends Component {
                 placeholder: 'Username'
             },
             value: '',
-            icon: faUserAlt
+            icon: faUserAlt,
+            errors: {}
         },
         email : {
             elementType: 'text',
@@ -30,7 +31,8 @@ class Form extends Component {
                 placeholder: 'Email'
             },
             value: '',
-            icon: faEnvelope
+            icon: faEnvelope,
+            errors: {}
         },
         password : {
             elementType: 'text',
@@ -39,32 +41,49 @@ class Form extends Component {
                 placeholder: 'Password'
             },
             value: '',
-            icon: faLockAlt
+            icon: faLockAlt,
+            errors: {}
+        },
+        password_two : {
+            elementType: 'text',
+            elementConfig: {
+                type: 'text',
+                placeholder: 'Re-enter your Password'
+            },
+            value: '',
+            icon: faLockAlt,
+            errors: {}
         }
     };
 
     submitLogInHandler = (event) => {
         event.preventDefault();
-        const formData = {};
+        const loginUser = {};
         
         for(let formElementIdentifier in this.state) {
-            formData[formElementIdentifier] = this.state[formElementIdentifier].value;
+            loginUser[formElementIdentifier] = this.state[formElementIdentifier].value;
         }
-        console.log(formData)
-        Axios.post('http://localhost:3000/login', formData)
+        console.log(loginUser)
+        AxiosInstance.post('/api/v1/user/login', loginUser)
             .then(res => {
                 this.props.push('/')
             })
+            .catch(err => console.log(err));
     };
 
-    submitSignUpHandler = () => {
+    submitSignUpHandler = (event) => {
         event.preventDefault();
-        const formData = {};
+        const newUser = {};
         
         for(let formElementIdentifier in this.state) {
-            formData[formElementIdentifier] = this.state[formElementIdentifier].value;
+            newUser[formElementIdentifier] = this.state[formElementIdentifier].value;
         }
-        // Axios.post('http://localhost:3000/signup', loginData)
+        console.log(newUser)
+        AxiosInstance.post('/api/v1/user/signup', newUser)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => console.log(err))
     };
 
     inputChangedHandler = (event, inputIdentifier) => {
@@ -100,7 +119,8 @@ class Form extends Component {
                     <span> or use your email account: </span>
                     <form >
                         { formElementsArray.map((formElement) => {
-                            if( formElement.id !== 'username') {
+                            if( formElement.id !== 'email' && formElement.id !== 'password_two' ) {
+                                {/* console.log(formElement) */}
                                 return (
                                     <Input
                                         key={ formElement.id }
@@ -108,6 +128,7 @@ class Form extends Component {
                                         elementConfig={ formElement.config.elementConfig } 
                                         value={ formElement.config.value }
                                         icon={ formElement.config.icon }
+                                        error={ formElement.config.errors[`${formElement.id}`] }
                                         changedValue={(event) => this.inputChangedHandler(event, formElement.id ) }
                                     />
                                 )
@@ -134,6 +155,7 @@ class Form extends Component {
                             elementConfig={ formElement.config.elementConfig } 
                             value={ formElement.config.value }
                             icon={ formElement.config.icon }
+                            error={ formElement.config.errors[`${formElement.id}`] }
                             changedValue={(event) => this.inputChangedHandler(event, formElement.id) }
                         />
                     ))}

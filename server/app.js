@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-
+const cors = require('cors');
 const app = express();
 const key = require('./config/keys');
 const PORT = 3000;
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
+app.use(cors());
 // Routes
 const routes = require('./routes');
 
