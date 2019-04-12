@@ -2,10 +2,24 @@ import React from 'react';
 import classes from './Input.scss';
 
 import Icon from '../Icon/Icon';
+import { faEnvelope } from '@fortawesome/pro-light-svg-icons';
+import { faLockAlt } from '@fortawesome/pro-light-svg-icons';
+import { faUserAlt } from '@fortawesome/pro-light-svg-icons';
 
 const input = (props) => {
-    
     let styles;
+    let icon;
+    switch(props.icon) {
+        case 'faEnvelope':
+        icon = faEnvelope;
+        break;
+        case 'faLockAlt':
+        icon = faLockAlt;
+        break;
+        case 'faUserAlt':
+        icon = faUserAlt
+
+    }
     
     if(props.elementType === 'email' || props.elementType === 'text' ) {
         styles = {
@@ -23,11 +37,11 @@ const input = (props) => {
             color: 'red'
         }
     }
-
+    
     return  (
         <div className={ classes.Input }>
             <div className={ classes.Input__icon }>
-                <Icon icon={ props.icon } color={ styles.color }/>
+                <Icon icon={ icon } />
             </div>
             <input 
                 { ...props.elementConfig }

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const icon = (props) => {
     library.add(props.icon);
-    return <FontAwesomeIcon icon={ props.icon } color={ props.color } />;
+    return <FontAwesomeIcon icon={ props.icon } />;
 };
 
 export default icon;

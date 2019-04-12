@@ -9,7 +9,7 @@ import {
 }   from './types';
 
 // Register User
-export const registerUser = (userData, history) = dispatch => {
+export const registerUser = (userData, history) => dispatch => {
     axios
         .post('/api/v1/user/signup', userData)
         .then(res => history.push('/login')) // redirects to login if successful
