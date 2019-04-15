@@ -7,6 +7,7 @@ const icon = (props) => {
     library.add(props.icon);
     return <FontAwesomeIcon icon={ props.icon } />;
 };
+
 icon.propTypes = {
     icon: PropTypes.object.isRequired
 }

@@ -3,9 +3,7 @@ import classes from './Input.scss';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon/Icon';
-import { faEnvelope } from '@fortawesome/pro-light-svg-icons';
-import { faLockAlt } from '@fortawesome/pro-light-svg-icons';
-import { faUserAlt } from '@fortawesome/pro-light-svg-icons';
+import { faEnvelope, faLockAlt, faUserAlt } from '@fortawesome/pro-light-svg-icons';
 
 const input = (props) => {
     let styles;
