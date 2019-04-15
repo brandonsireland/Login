@@ -19,7 +19,7 @@ const transitions = (props) => {
 };
 
 transitions.propTypes = {
-    pageKey : PropTypes.string.isRequired,
+    pageKey : PropTypes.string,
     pathname: PropTypes.string.isRequired
 }
 

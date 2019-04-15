@@ -3,12 +3,10 @@ import classes from './Navigation.scss';
 
 import NavigationItems from './NavigationItems/NavigationItems';
 
-const navigation = (props) => {
-    return (
-        <div className={ classes.Navigation }>
-            <NavigationItems />
-        </div>
-    )
-};
+const navigation = () => (
+    <div className={ classes.Navigation }>
+        <NavigationItems />
+    </div>
+);
 
 export default navigation;
