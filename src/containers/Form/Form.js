@@ -121,9 +121,7 @@ class Form extends Component {
                 <span> or use your email account: </span>
                 <form >
                     { formElementsArray.map((formElement) => {
-                        if( formElement.id !== 'email' && formElement.id !== 'password_two' ) {
-                            console.log(formElement)
-                            console.log(this.state.user)
+                        if( formElement.id !== 'username' && formElement.id !== 'password_two' ) {
                             return (
                                     <Input
                                         key={ formElement.id }
@@ -152,7 +150,6 @@ class Form extends Component {
                 <span> or use your email for registration: </span>
                 <form onSubmit={ this.submitSignUpHandler }>
                 { formElementsArray.map((formElement) => (
-                   
                         <Input
                             key={ formElement.id }
                             elementType={ formElement.config.elementType } 
@@ -162,8 +159,6 @@ class Form extends Component {
                             error={ this.state.errors[`${formElement.id}`] }
                             changedValue={(event) => this.inputChangedHandler(event, formElement.id) }
                         />
-                        
-                    
                     ))}
                 </form>
                 <ButtonOval clicked={ this.submitSignUpHandler }>Sign Up</ButtonOval>
