@@ -1,5 +1,7 @@
 import React, { Component, Suspense } from 'react';
-import { Switch, Route, withRouter, Redirect } from 'react-router-dom'
+import { Switch, Route, withRouter} from 'react-router-dom'
+import PropTypes from 'prop-types';
+
 import { connect } from "react-redux";
 
 import classes from './LayoutContainer.scss';
@@ -8,6 +10,8 @@ import Navigation from '../../components/Navigation/Navigation';
 import Transitions from '../../components/Transitions/Transitions';
 
 import { SignUp, LogIn } from '../../components/Pages'
+
+// Look how routing is done with lazy loading components due to propTypes
 const Home = React.lazy(() => import('../../components/Pages/Home/Home'))
 const UserDashboard = React.lazy(() => import('../UserDashboard/UserDashboard'));
 
@@ -27,8 +31,8 @@ class LayoutContainer extends Component {
                             <Switch location={ location }>
                                 <Route path='/login' exact component={ LogIn }/> 
                                 <Route path='/signup' exact component={ SignUp } />
-                                <Route path='/' exact component={ Home }/>
-                                <PrivateRoute path="/dashboard" exact component={ UserDashboard } />
+                                <Route path='/' exact component={props => <Home /> }/>
+                                <PrivateRoute path="/dashboard" exact component={props => <UserDashboard /> } />
                             </Switch>
                         </Suspense>
                         </Transitions>
@@ -37,7 +41,9 @@ class LayoutContainer extends Component {
         )
     }
 };
-
+LayoutContainer.propTypes ={
+    component: PropTypes.func
+}
 const mapStateToProps = state => ({
     auth: state.auth
   });

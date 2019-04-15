@@ -101,7 +101,6 @@ class Form extends Component {
     }
 
     render() {
-        console.log(this.props)
         const { errors } = this.state;
         let formDiv;
         let formElementsArray = [];
@@ -175,8 +174,8 @@ Form.propTypes = {
     auth: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired
-    // errors: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    errors: PropTypes.object
 };
 
 const mapPropsToState = state => ({
