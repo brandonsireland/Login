@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Input.scss';
+import PropTypes from 'prop-types';
 
 import Icon from '../Icon/Icon';
 import { faEnvelope } from '@fortawesome/pro-light-svg-icons';
@@ -9,6 +10,7 @@ import { faUserAlt } from '@fortawesome/pro-light-svg-icons';
 const input = (props) => {
     let styles;
     let icon;
+    
     switch(props.icon) {
         case 'faEnvelope':
         icon = faEnvelope;
@@ -52,5 +54,12 @@ const input = (props) => {
         </div>
     )
 };
+input.propTypes = {
+    elementType: PropTypes.string.isRequired,
+    elementConfig: PropTypes.object.isRequired,
+    changedValue: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired
+}
 
 export default input;

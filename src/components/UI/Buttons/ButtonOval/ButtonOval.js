@@ -1,8 +1,10 @@
 import React from 'react';
 import classes from './buttonOval.scss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const buttonOval = ({ history, to, ...props }) => {    
+
     let button;
     button = history ? (
         <Link to={ to }>
@@ -23,6 +25,14 @@ const buttonOval = ({ history, to, ...props }) => {
     return (
         { ...button }
     )
+};
+
+buttonOval.propTypes = {
+    children: PropTypes.string.isRequired,
+    clicked: PropTypes.func,
+    transition: PropTypes.string,
+    style: PropTypes.object,
+    type: PropTypes.string
 };
 
 export default buttonOval;

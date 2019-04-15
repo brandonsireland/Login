@@ -7,8 +7,8 @@ import classes from './LayoutContainer.scss';
 import { Home, SignUp, LogIn } from '../../components/Pages'
 import Transitions from '../../components/Transitions/Transitions';
 import Navigation from '../../components/Navigation/Navigation';
-import UserDashboard from '../UserDashboard/UserDashboard';
 
+import UserDashboard from '../UserDashboard/UserDashboard';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 
 class LayoutContainer extends Component {

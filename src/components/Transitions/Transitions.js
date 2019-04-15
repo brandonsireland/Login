@@ -1,6 +1,7 @@
 import React from "react";
 import { TransitionGroup, Transition } from "react-transition-group";
 import { play, exit } from '../../utils/timelines';
+import PropTypes from 'prop-types';
 
 const transitions = (props) => {
     return (
@@ -16,5 +17,10 @@ const transitions = (props) => {
         </TransitionGroup>
     )
 };
+
+transitions.propTypes = {
+    pageKey : PropTypes.string.isRequired,
+    pathname: PropTypes.string.isRequired
+}
 
 export default transitions;
