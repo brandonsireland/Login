@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import classes from './Layer.scss';
-import ButtonOval from '../../UI/Buttons/ButtonOval/ButtonOval';
+import ButtonOval from '../Buttons/ButtonOval/ButtonOval';
 
 const layer = (props) => {
     let layerDiv;
