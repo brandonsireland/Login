@@ -10,7 +10,6 @@ import Input from '../../components/UI/Input/Input';
 import ButtonOval from '../../components/UI/Buttons/ButtonOval/ButtonOval';
 
 class Form extends Component {
-
     state = {
         user: {
             username : {
@@ -73,7 +72,6 @@ class Form extends Component {
         for(let formElementIdentifier in this.state.user) {
             loginUser[formElementIdentifier] = this.state.user[formElementIdentifier].value;
         }
-        console.log(loginUser)
         this.props.loginUser(loginUser)
     };
 
@@ -84,7 +82,6 @@ class Form extends Component {
         for(let formElementIdentifier in this.state.user) {
             newUser[formElementIdentifier] = this.state.user[formElementIdentifier].value;
         }
-        console.log(newUser)
         this.props.registerUser(newUser, this.props.history);
     };
 
@@ -104,6 +101,7 @@ class Form extends Component {
     }
 
     render() {
+        console.log(this.props)
         const { errors } = this.state;
         let formDiv;
         let formElementsArray = [];
@@ -175,6 +173,9 @@ Form.propTypes = {
     loginUser: PropTypes.func.isRequired,
     registerUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired
     // errors: PropTypes.object.isRequired
 };
 
