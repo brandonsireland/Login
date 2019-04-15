@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import classes from './LayoutContainer.scss';
 
-import Transitions from '../../utils/Transitions/Transitions';
+import Transitions from '../../components/Transitions/Transitions';
 import Navigation from '../../components/Navigation/Navigation';
 import SignUp from '../../components/Pages/SignUp/SignUp';
 import LogIn from '../../components/Pages/LogIn/LogIn';
@@ -16,7 +16,6 @@ class LayoutContainer extends Component {
 
     render() {
 
-        console.log(this.props)
         return (
             <div className={ classes.LayoutContainer }>
                 <Navigation />
