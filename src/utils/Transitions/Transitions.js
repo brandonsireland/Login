@@ -1,6 +1,6 @@
 import React from "react";
 import { TransitionGroup, Transition } from "react-transition-group";
-import { play, exit } from '../../timelines';
+import { play, exit } from '../../utils/Transitions';
 
 const transitions = (props) => {
     return (

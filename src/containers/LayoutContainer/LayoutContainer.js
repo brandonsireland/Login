@@ -4,21 +4,18 @@ import { connect } from "react-redux";
 
 import classes from './LayoutContainer.scss';
 
-import Transitions from '../../components/Transitions/Transitions';
+import Transitions from '../../utils/Transitions/Transitions';
 import Navigation from '../../components/Navigation/Navigation';
 import SignUp from '../../components/Pages/SignUp/SignUp';
 import LogIn from '../../components/Pages/LogIn/LogIn';
 import Home from '../../components/Pages/Home/Home';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
-
 import UserDashboard from '../UserDashboard/UserDashboard';
 
 class LayoutContainer extends Component {
-    
-    state = {
-        
-    }
+
     render() {
+
         console.log(this.props)
         return (
             <div className={ classes.LayoutContainer }>
@@ -27,7 +24,7 @@ class LayoutContainer extends Component {
                      render={({ location }) => ( 
                         <Transitions pageKey={location.key} {...location}>
                             <Switch location={ location }>
-                                <Route path='/login' exact component={ LogIn } />
+                                <Route path='/login' exact component={ LogIn }/> 
                                 <Route path='/signup' exact component={ SignUp } />
                                 <Route path='/' exact component={ Home }/>
                                 <PrivateRoute path="/dashboard" exact component={ UserDashboard } />
@@ -43,6 +40,4 @@ const mapStateToProps = state => ({
     auth: state.auth
   });
 
-export default withRouter(connect(
-    mapStateToProps
-    )(LayoutContainer));
+export default withRouter(connect(mapStateToProps)(LayoutContainer));

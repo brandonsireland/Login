@@ -1,5 +1,8 @@
 import React from 'react';
 import classes from './LogIn.scss';
+
+import { connect } from 'react-redux';
+
 // Icons
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
