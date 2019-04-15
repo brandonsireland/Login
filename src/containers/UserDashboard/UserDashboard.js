@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 
 class UserDashboard extends Component {
+    
     logoutUserHandler = (e) => {
         e.preventDefault();
         this.props.logoutUser();

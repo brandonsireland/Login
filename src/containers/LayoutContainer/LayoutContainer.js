@@ -4,13 +4,12 @@ import { connect } from "react-redux";
 
 import classes from './LayoutContainer.scss';
 
+import { Home, SignUp, LogIn } from '../../components/Pages'
 import Transitions from '../../components/Transitions/Transitions';
 import Navigation from '../../components/Navigation/Navigation';
-import SignUp from '../../components/Pages/SignUp/SignUp';
-import LogIn from '../../components/Pages/LogIn/LogIn';
-import Home from '../../components/Pages/Home/Home';
-import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import UserDashboard from '../UserDashboard/UserDashboard';
+
+import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 
 class LayoutContainer extends Component {
 
