@@ -12,7 +12,7 @@ import Transitions from '../../components/Transitions/Transitions';
 import { SignUp, LogIn } from '../../components/Pages'
 
 // Look how routing is done with lazy loading components due to propTypes
-const Home = React.lazy(() => import('../../components/Pages/Home/Home'))
+const Home = React.lazy(() => import('../../components/Pages/Home/Home'));
 const UserDashboard = React.lazy(() => import('../UserDashboard/UserDashboard'));
 
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
@@ -20,7 +20,6 @@ import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 class LayoutContainer extends Component {
 
     render() {
-        console.log(this.props)
         return (
             <div className={ classes.LayoutContainer }>
                 <Navigation />
