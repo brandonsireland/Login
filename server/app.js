@@ -4,15 +4,14 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const cors = require('cors');
 const app = express();
-const key = require('./config/keys');
+const db = require('./config/db');
 const PORT = 3000;
 
 // Connect to mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(key.mongoURI, {
+mongoose.connect(db.URI, {
     useNewUrlParser: true
 });
-// require('./config/passport')(passport); // pass passport for configuration
 
 // Configuration
 app.use(bodyParser.urlencoded({

@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 const validators = require('../util/validator');
 const bcrypt = require('bcryptjs');
-const keys = require('../config/keys');
+const auth = require('../config/auth');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
 
 exports.user_create_post = (req, res, next) => {
 
@@ -75,8 +76,8 @@ exports.user_login_post = (req, res) => {
                 emailnotfound: "Email not found"
             });
         }
+        
         // Check password
-        console.log(password, user.local.password)
         bcrypt.compare(password, user.local.password).then(isMatch => {
             if (isMatch) {
                 // User matched
@@ -88,7 +89,7 @@ exports.user_login_post = (req, res) => {
                 // Sign token
                 jwt.sign(
                     payload,
-                    keys.secretOrKey, {
+                    auth.local.secretOrKey, {
                         expiresIn: 31556926 // 1 year in seconds
                     },
                     (err, token) => {
@@ -108,3 +109,17 @@ exports.user_login_post = (req, res) => {
         });
     });
 };
+
+exports.get_facebook = () => {
+    passport.authenticate('facebook', {
+        scope: ['public_profile', 'email']
+    });
+}
+exports.get_facebook_callback = () => {
+
+    passport.authenticate('facebook', {
+        successRedirect:'/success',
+        failureRedirect: '/'
+    });
+
+}
