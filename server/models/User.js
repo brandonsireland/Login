@@ -21,7 +21,7 @@ const UserSchema = new Schema({
         name: String,
         email: String
     },
-    Twitter: {
+    twitter: {
         id: String,
         token: String,
         displayName: String,
