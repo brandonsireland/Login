@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './Home.scss';
 import ButtonOval from '../../UI/Buttons/ButtonOval/ButtonOval';
 
@@ -10,7 +11,11 @@ const home = () => (
         <div className={ classes.Home__subtitle}>
             <span>Thousands of musicians. No credit card needed.</span>
         </div>
-        <ButtonOval>Join for free</ButtonOval>
+        <ButtonOval>
+        <Link to='signup'>
+            Join for free
+        </Link>
+        </ButtonOval>
     </div>
 );
 export default home;

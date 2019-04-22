@@ -28,7 +28,10 @@ const buttonOval = ({ history, to, ...props }) => {
 };
 
 buttonOval.propTypes = {
-    children: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
     clicked: PropTypes.func,
     transition: PropTypes.string,
     style: PropTypes.object,
