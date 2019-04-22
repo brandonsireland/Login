@@ -116,7 +116,6 @@ class Form extends Component {
                 id: errKey,
                 error: this.state.errors[errKey]
             })
-            console.log(errorArray)
         }
 
     if(this.props.type == 'signin') {
