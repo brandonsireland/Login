@@ -14,8 +14,13 @@
         border-bottom: 2px solid #ededee;
 
     }
+    &__error {
+        color: red !important;
+        font-weight: bold !important;
+        padding: 10px !important;
+    }
 
-    >span {
+    span {
         padding: 20px;
         font-size: 14px;
         color: #787D85;

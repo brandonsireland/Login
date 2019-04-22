@@ -53,7 +53,6 @@ class Form extends Component {
     };
 
     componentWillReceiveProps(nextProps){
-        
         if (nextProps.auth.isAuthenticated) {
             this.props.history.push("/dashboard");
         }
@@ -101,15 +100,23 @@ class Form extends Component {
     }
 
     render() {
-        const { errors } = this.state;
+
         let formDiv;
         let formElementsArray = [];
+        let errorArray = [];
 
         for(let key in this.state.user) {
             formElementsArray.push({
                 id: key,
                 config: this.state.user[key]
             })
+        }
+        for(let errKey in this.state.errors) {
+            errorArray.push({
+                id: errKey,
+                error: this.state.errors[errKey]
+            })
+            console.log(errorArray)
         }
 
     if(this.props.type == 'signin') {
@@ -126,13 +133,15 @@ class Form extends Component {
                                         elementConfig={ formElement.config.elementConfig } 
                                         value={ formElement.config.value }
                                         icon={ formElement.config.icon }
-                                        // error={ this.state.errors[`${formElement.id}`] }
                                         changedValue={(event) => this.inputChangedHandler(event, formElement.id ) }
                                     />
-                                   )
+                                )
                         }
                     })}
                 </form>
+                { errorArray.map((errorElement) => { 
+                    return <span key={ errorElement.id } className={ classes.Form__error }>{ errorElement.error }</span>
+                })}
                 <Link to='/forgot'>
                     <span className={ classes.Form__forgot }>Forgot your password?</span>
                 </Link>
@@ -178,12 +187,12 @@ Form.propTypes = {
     errors: PropTypes.object
 };
 
-const mapPropsToState = state => ({
+const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
 });  
 
 export default connect(
-    mapPropsToState,
+    mapStateToProps,
     { registerUser, loginUser }
 )(withRouter(Form));

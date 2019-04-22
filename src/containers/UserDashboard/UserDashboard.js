@@ -14,7 +14,7 @@ class UserDashboard extends Component {
         const { user } = this.props.auth;
 
         return (
-            <div className={ classes.UserDashboard }>
+        <div className={ classes.UserDashboard  }>
             <button onClick={(e) =>  this.logoutUserHandler(e) }>Log out!</button>
         </div>
     )

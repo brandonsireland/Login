@@ -103,7 +103,7 @@ exports.user_login_post = (req, res) => {
                 return res
                     .status(400)
                     .json({
-                        passwordincorrect: "Password incorrect"
+                        passwordincorrect: "Password is incorrect"
                     });
             }
         });

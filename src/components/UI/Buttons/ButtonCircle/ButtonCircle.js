@@ -3,7 +3,10 @@ import classes from './ButtonCircle.scss';
 import PropTypes from 'prop-types';
 
 const buttonCircle = (props) => (
-    <button className={ classes.ButtonCircle }>{ props.children }</button>
+    <button 
+    className={ classes.ButtonCircle } 
+    onClick={() => props.clicked }>
+    { props.children }</button>
 )
 
 buttonCircle.propTypes = {
