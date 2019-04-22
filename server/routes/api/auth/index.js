@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-// example Controller;
 const authController = require('../../../controllers/auth.ctrl');
 
 // Get Routes
