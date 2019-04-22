@@ -166,6 +166,9 @@ class Form extends Component {
                         />
                     ))}
                 </form>
+                { errorArray.map((errorElement) => { 
+                    return <span key={ errorElement.id } className={ classes.Form__error }>{ errorElement.error }</span>
+                })}
                 <ButtonOval clicked={ this.submitSignUpHandler }>Sign Up</ButtonOval>
             </div>
         );
