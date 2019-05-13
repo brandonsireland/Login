@@ -6,11 +6,10 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 // god damn sass imports...
 const bourbon = require('bourbon').includePaths;
 const neat = require('bourbon-neat').includePaths;
-const normalize = require('normalize.css').includePaths;
 
 module.exports = {
     output: {
-      path: path.resolve(__dirname, 'public'),
+      path: path.resolve(__dirname, 'dist'),
       chunkFilename: '[chunkhash].[id].chunk.js'
     },
     module: {
@@ -44,8 +43,7 @@ module.exports = {
               options: {
                 sourceMap: true,
                 includePaths: [
-                  bourbon, neat, 
-                  normalize
+                  bourbon, neat
                 ]
               }
             }
