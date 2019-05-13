@@ -8,20 +8,25 @@
     "start": "webpack-dev-server --mode development --open --history-api-fallback",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build"
   },
-  "author": "",
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.0.0"
+  },
+  "author": "Brandon Ireland",
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "gsap": "^2.1.2",
+    "helmet": "^3.18.0",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",

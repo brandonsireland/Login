@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const compression = require('compression');
+const helmet = require('helmet');
 const cors = require('cors');
 const app = express();
 const db = require('./config/db');
@@ -19,6 +21,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(compression());
+app.use(helmet());
 // Routes
 const routes = require('./routes');
 
