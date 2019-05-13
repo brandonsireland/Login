@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "ConcertMe",
   "main": "index.js",
+  "homepage": "http://brandonsireland.github.io/login",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --history-api-fallback",
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -66,6 +69,7 @@
     "css-loader": "^1.0.1",
     "cssnano": "^4.1.10",
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.5",
     "node-normalize-scss": "^8.0.0",
